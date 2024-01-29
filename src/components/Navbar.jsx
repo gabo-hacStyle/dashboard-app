@@ -15,7 +15,7 @@ import {Cart, Chat, Notification, UserProfile} from '.'
 import { useStateContext } from '../contexts/ContextProvider'
 
 
-//Generic component to all the buttons of the navbar
+//A component to all the buttons of the navbar
 const NavButton = ({ customFunc, icon,
 color, dotColor}) => (
     <TooltipComponent  position='BottomCenter'>
@@ -48,6 +48,8 @@ const Navbar = () => {
     setScreenSize
   } = useStateContext();
 
+  //This useEffect works to modify the state context of the menu
+  //(sidebar), according to the width size of the screen
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth !== screenSize) {
@@ -69,27 +71,36 @@ const Navbar = () => {
   return (
     <div className='flex justify-between p-2
     md:mx-6 relative'>
+      {/* First toggle button for opening and closing the menu*/}
+
       <NavButton title='Menu' 
       customFunc={() => setActiveMenu(!activeMenu)} 
       icon={<AiOutlineMenu/>} color='blue' />
 
+      {/**All the other toggle buttons in the navbar */}
+
       <div className="flex">
+
+        {/*For the chat  */}
 
         <NavButton title='Chat'
         customFunc={() => handleClick('chat')}
         icon={<BsChatLeft/>} color='blue' 
         dotColor="#9f1145"/>
 
+        {/*For the cart  */}
         <NavButton title='Cart'
         customFunc={() => handleClick('cart')}
         icon={<FiShoppingCart/>} color='blue' />
 
         
+        {/*For the notification  */}
         <NavButton title='Notification'
         customFunc={() => handleClick('notification')}
         icon={<RiNotification3Line/>} color='blue' 
         dotColor="#fd1000"/>
 
+        {/*For the user profile -> tooltip component*/}
         <TooltipComponent
           content="Profile"
           position='BootomCenter'
@@ -99,8 +110,12 @@ const Navbar = () => {
           rounded-lg'
           onClick={() => handleClick('userProfile')}
           >
+            {/*Avatar */}
+
             <img src={avatar} alt="avatar"
             className='rounded-full w-10 h-10'/>
+
+            {/*Name of the user */}
 
             <p>
               <span className='text-14'
@@ -109,11 +124,16 @@ const Navbar = () => {
               font-bold ml-1 text-14'>
                 Michael</span>
             </p>
+              
+            {/*Arrow down icon */}
+
             <MdKeyboardArrowDown className='text-14'/>
           </div>
 
         </TooltipComponent>
         
+        {/*If one toggle is clicked, that will show its component
+          *The isClicked logic comes from the ContextProvider */}
         {isClicked.cart && <Cart/>}
         {isClicked.chat && <Chat/>}
         {isClicked.notification && <Notification/>}

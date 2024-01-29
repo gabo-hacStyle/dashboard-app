@@ -21,6 +21,8 @@ const Sidebar = () => {
     screenSize,
   } = useStateContext();
 
+  //If there is a small device, we don't want the menu to be opened
+  //all the time, so we close it when the user clicks on a link
   const handleCloseSideBar = () => {
     if(activeMenu && screenSize <= 900){
       setActiveMenu(false)
@@ -47,7 +49,7 @@ const Sidebar = () => {
               {/*Logo and link to the main page. Closing sidebar when clicked */}
               <Link to="/" 
               onClick={() => 
-                handleCloseSideBar
+                handleCloseSideBar()
               }
               className='items-center gap-3 ml-3 mt-4 flex text-xl
               font-extrabold tracking-tight dark:text-white text-slate-900'>
