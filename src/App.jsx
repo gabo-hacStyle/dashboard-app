@@ -13,16 +13,20 @@ import './App.css'
 import { useStateContext } from './contexts/ContextProvider'
 
 function App() {
-  const {activeMenu} = useStateContext();
+  const {activeMenu, themeSettings, setThemeSettings} = useStateContext();
 
   return (
     <>
       <Router>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
-            <TooltipComponent style={{backgroundColor: 'blue'}} content="Settings" position="Top" >
-              <button>
-                <FiSettings className="text-3xl text-gray-400 settings" />
+            <TooltipComponent content="Settings" position="Top" >
+              <button 
+                type='button'
+                className='text-xl hover:drop-shadow-xl hover:bg-light-gray text-white'
+                style={{backgroundColor: 'blue'}}
+                onClick={() => setThemeSettings(true)}>
+                <FiSettings />
               </button>
             </TooltipComponent>
           </div>
@@ -44,7 +48,7 @@ function App() {
             <div className="fixed md:static bg main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar />
             </div>
-          
+            {themeSettings && <ThemeSettings />}
             <div>
               <Routes>
                 {/*Dashboard*/}

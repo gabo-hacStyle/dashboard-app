@@ -22,6 +22,14 @@ export const ContextProvider = ({children}) => {
     //State for the clickable elements in the navbar section
     const [isClicked, setIsClicked] = useState(initialState);
 
+    const [currentMode, setCurrentMode] = useState('light');
+    const [themeSettings, setThemeSettings] = useState(false)
+    
+    //The global state to check the width of the screen
+    const [screenSize, setScreenSize] = useState(undefined);
+
+
+
     //This function is to modify the state of the clickable elements
     //in the navbar section
     const handleClick = (clickedElement) => {
@@ -31,8 +39,12 @@ export const ContextProvider = ({children}) => {
         })
     }
 
-    //The global state to check the width of the screen
-    const [screenSize, setScreenSize] = useState(undefined);
+    const setMode = (e) =>{
+        setCurrentMode(e.target.value);
+        localStorage.setItem('themeMode', e.target.value);
+        setThemeSettings(false);
+    }
+
     
     return (
         <StateContext.Provider 
@@ -43,7 +55,11 @@ export const ContextProvider = ({children}) => {
             setIsClicked,
             handleClick,
             screenSize,
-            setScreenSize
+            setScreenSize, 
+            currentMode,
+            themeSettings, 
+            setThemeSettings,
+            setMode
         }}>
             {children}
         </StateContext.Provider>

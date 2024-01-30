@@ -3092,11 +3092,16 @@ export const dropdownData = [
   },
 ];
 export const SparklineAreaData = [
-  { x: 1, yval: 2 },
-  { x: 2, yval: 6 },
-  { x: 3, yval: 8 },
-  { x: 4, yval: 5 },
-  { x: 5, yval: 10 },
+                { xval: '2005', yval: 1440 },
+                { xval: '2006', yval: 6080 },
+                { xval: '2007', yval: 3180 },
+                { xval: '2008', yval: 7310 },
+                { xval: '2009', yval: 2640 },
+                { xval: '2010', yval: 9750 },
+                { xval: '2011', yval: 6710 },
+                { xval: '2012', yval: 1580 },
+                { xval: '2013', yval: 2500 },
+                { xval: '2014', yval: 7620 },
 
 ];
 
