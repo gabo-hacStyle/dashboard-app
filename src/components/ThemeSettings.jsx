@@ -13,7 +13,7 @@ const ThemeSettings = () => {
     <div className='bg-half-transparent w-screen
     fixed nav-item top-0 right-0'>
       <div className="float-right h-screen dark:text-gray-200
-       bg-white dark:[484b52 w-400">
+       bg-white dark:bg-sky-950 w-400">
         <div className="flex justify-between items-center p-4 ml-4">
           <p className='font-semibold text-xl'>
             Settings
@@ -38,7 +38,7 @@ const ThemeSettings = () => {
               value='Light'
               className='cursor-pointer'
               onChange={setMode}
-              checked={currentMode === 'light'}
+              checked={currentMode === 'Light'}
             />
             <label htmlFor="light" className='ml-2 text-md cursor-pointer'>
               Light
@@ -51,7 +51,7 @@ const ThemeSettings = () => {
               value='Dark'
               className='cursor-pointer'
               onChange={setMode}
-              checked={currentMode === 'dark'}
+              checked={currentMode === 'Dark'}
             />
             <label htmlFor="dark" className='ml-2 text-md cursor-pointer'>
               Dark

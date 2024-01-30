@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { BsCurrencyDollar } from 'react-icons/bs'
 //import {GoPrimitiveDot} from 'react-icons/go'
 import {Stacked, Pie, Button, SparkLine} from '../components/'
@@ -18,19 +19,32 @@ const Ecommerce = () => {
         w-full lg:w-full p-8 pt-9 m-3 bg-hero-pattern bg-no-repat
         bg-cover bg-center">
           <div className="flex justify-between items-center">
-            <div >
+            <div className='text-white'>
               <p className="text-sm">Earnings </p>
-              <h1 className="text-3xl font-semibold">$ 32000</h1>
+              <h1 className="text-3xl  font-semibold">$ 32000  -  January </h1>
             </div>
           </div>
-          <div className="mt-6">
-            <Button 
+          <div className='mt-6'>
+            
+              <Link
+                className=''
+                to='/line'
+              >
+                <p 
+                  className="rounded bg-sky-100 p-3 
+                  text-sky-950 text-center
+                  dark:bg-slate-100 dark:text-gray-500"
+                >View Details</p>
+              </Link>
+
+
+            {/* <Button 
               color="white"
-              bgColor="bg-green-500"
+              bgColor="bg-green-400"
               text="View Details"
               borderRadius="10px"
               size='md'
-            />
+            /> */}
           </div>
         </div>
         <div className='flex m-3 flex-wrap justify-center gap-1
@@ -39,7 +53,7 @@ const Ecommerce = () => {
             return (
               <div key={item.title} 
               style={{backgroundColor: item.iconBg}}
-              className="dark:text-gray-200 dark:bg-secondary-dark-bg
+              className="dark:text-white dark:bg-secondary-dark-bg
               md:w-56 p-4 pt-9 rounded-2xl ">
                 <div className="justify-between items-center">
                   <div>
@@ -73,18 +87,19 @@ const Ecommerce = () => {
             <p className='font-semibold text-xl'>Revenue Updates</p>
             <div className="flex items-center gap-4">
               <p className='flex items-center gap-2 text-gray-600 
-              hover:drop-shadow-xl'>
+              hover:drop-shadow-xl dark:text-white'>
                 <span>--</span>
                 <span>Expenses</span>
               </p>
-              <p className='flex items-center gap-2 text-green-500 
+
+              {/* <p className='flex items-center gap-2 text-green-500 
               hover:drop-shadow-xl'>
                 <span>--</span>
                 <span>Budget</span>
-              </p>
+              </p> */}
             </div>
           </div>
-          <div className="mt-10 flex gap-10 flex-wrap justify-center">
+          <div className="mt-10 flex gap-10 justify-center">
             <div className="border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
@@ -99,7 +114,7 @@ const Ecommerce = () => {
               </div>
               <div className='mt-8'>
                 <p>
-                  <span className='text-3xl font-semibold'>43,438</span>
+                  <span className='text-3xl font-semibold'>$43,438</span>
                   
                 </p>
                 <p className='mt-1 text-gray-500'>
@@ -108,7 +123,7 @@ const Ecommerce = () => {
               </div>
 
               <div className="mt-5">
-                <SparkLine 
+                {/* <SparkLine 
                   currentColor="blue"
                   id="sparkline"
                   height="80px"
@@ -116,22 +131,27 @@ const Ecommerce = () => {
                   width="250px"
                   data={SparklineAreaData}
                   color="black"
-                />
+                /> */}
               </div>
-              <div className="mt-10">
-                <Button 
+              <div className="mt-10 rounded bg-sky-950  text-sky-50 p-3 text-center
+              dark:bg-slate-100 dark:text-gray-500">
+                <Link 
+                  to='/pie'
+                  >
+                  <p>View Details</p>  
+                
+                </Link>
+
+                {/* <Button 
                   color="white"
                   bgColor="blue"
                   text="View Details"
                   borderRadius="10px"
-                />
+                /> */}
               </div>
             </div>
             <div>
-              <Stacked 
-                width="320px"
-                height="360px"
-              />
+              <img src="https://resassets.moqups.com/j/9/Y/j9Yd9ODAWz/images/88toAJKsKP-md.png" alt="" />
             </div>
           </div>
 

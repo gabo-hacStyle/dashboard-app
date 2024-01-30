@@ -13,18 +13,19 @@ import './App.css'
 import { useStateContext } from './contexts/ContextProvider'
 
 function App() {
-  const {activeMenu, themeSettings, setThemeSettings} = useStateContext();
+  const {activeMenu, themeSettings, setThemeSettings, currentMode} = useStateContext();
 
   return (
-    <>
+    <div className={currentMode === "Dark" ? 'dark' : ''}>
       <Router>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
             <TooltipComponent content="Settings" position="Top" >
               <button 
                 type='button'
-                className='text-xl hover:drop-shadow-xl hover:bg-light-gray text-white'
-                style={{backgroundColor: 'blue'}}
+                title='Settings'
+                className='text-xl hover:drop-shadow-xl text-white
+                bg-sky-950 rounded-full p-3'
                 onClick={() => setThemeSettings(true)}>
                 <FiSettings />
               </button>
@@ -42,7 +43,7 @@ function App() {
           <div
             className={`${
               activeMenu ? 'md:ml-72' : 'flex-2'
-            } transition-all duration-300 ease-in-out dark:bg-main-bg
+            } transition-all duration-300 ease-in-out dark:bg-main-dark-bg
             min-h-screen w-full bg-main-bg`
           }>
             <div className="fixed md:static bg main-bg dark:bg-main-dark-bg navbar w-full">
@@ -67,7 +68,7 @@ function App() {
                 <Route path='/color-picker' element={<ColorPicker />} />
 
                 {/*Charts*/}
-                <Route path='/linea' element={<Line />} />
+                <Route path='/line' element={<Line />} />
                 <Route path='/area' element={<Area />} />
                 <Route path='/bar' element={<Bar />} />
                 <Route path='/pie' element={<Pie />} />
@@ -81,7 +82,7 @@ function App() {
         </div>
       </Router>
 
-    </>
+    </div>
   )
 }
 

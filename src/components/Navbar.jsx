@@ -106,7 +106,7 @@ const Navbar = () => {
           position='BootomCenter'
         >
           <div className='flex items-center gap-2 
-          cursor-pointer p-1 hover:bg-light-gray
+          cursor-pointer p-1 
           rounded-lg'
           onClick={() => handleClick('userProfile')}
           >
@@ -118,26 +118,30 @@ const Navbar = () => {
             {/*Name of the user */}
 
             <p>
-              <span className='text-14'
+              <span className='text-14 dark:text-white'
               >Hi, </span>{' '}
               <span className=' 
-              font-bold ml-1 text-14'>
+              font-bold ml-1 text-14 dark:text-white'>
                 Michael</span>
             </p>
               
             {/*Arrow down icon */}
 
-            <MdKeyboardArrowDown className='text-14'/>
+            <MdKeyboardArrowDown className='text-14 dark:text-white'/>
           </div>
 
         </TooltipComponent>
         
         {/*If one toggle is clicked, that will show its component
           *The isClicked logic comes from the ContextProvider */}
-        {isClicked.cart && <Cart/>}
-        {isClicked.chat && <Chat/>}
-        {isClicked.notification && <Notification/>}
-        {isClicked.userProfile && <UserProfile/>}
+
+          {/**
+           * {isClicked.cart && <Cart/>}
+            {isClicked.chat && <Chat/>}
+            {isClicked.notification && <Notification/>}
+            {isClicked.userProfile && <UserProfile/>}
+           */}
+        
 
         
       </div>
